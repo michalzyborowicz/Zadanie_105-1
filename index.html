@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyForm</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <div class="form-body active">
+        <h1 class="title">Registration</h1>
+        <form name="myForm">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="secondName" placeholder="second name">
+            <fieldset>
+                <legend>Gender</legend>
+                <label for="gender">Male</label>
+                <input type="radio" name="gender" value="male" checked>
+                <label for="gender">Female</label>
+                <input type="radio" name="gender" value="female">
+            </fieldset>
+            <input type="login" name="login" placeholder="login">
+            <input type="password" name="password" placeholder="password">
+            <label for="dateOfBirth" class="Date">Date Of birth<input type="date" name="dateOfBirth"></label>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+    <div class="popup">
+        <h2>New user</h2>
+        <p class="user-info"></p>
+        <button class="popup-button">Confirm</button>
+    </div>
+
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
