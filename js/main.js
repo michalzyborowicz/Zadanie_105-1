@@ -6,7 +6,6 @@ const userInfo = document.querySelector('.user-info')
 const form = document.forms.myForm
 const nameInput = form.elements.name
 const secondNameInput = form.elements.secondName
-const genderInput = form.elements.gender
 const loginInput = form.elements.login
 const passwordInput = form.elements.password
 const dateOfBirthInput = form.elements.dateOfBirth
@@ -18,34 +17,40 @@ const warning = document.createElement('p')
 submitBtn.addEventListener('click', e => {
 	e.preventDefault()
 	allInputs.forEach(input => {
-		if (
-			nameInput.value === '' ||
-			secondNameInput.value === '' ||
-			loginInput.value === '' ||
-			passwordInput.value === ''
-		) {
-			input.value = 'This field is required'
-			input.style.color = 'red'
+		if (nameInput.value === '') {
+			nameInput.value = 'This field is required'
+			nameInput.style.color = 'red'
+		} else if (secondNameInput.value === '') {
+			secondNameInput.value = 'This field is required'
+			secondNameInput.style.color = 'red'
+		} else if (loginInput.value === '') {
+			loginInput.value = 'This field is required'
+			loginInput.style.color = 'red'
+		} else if (passwordInput.value === '') {
+			passwordInput.value = 'This field is required'
+			passwordInput.style.color = 'red'
 		} else if (dateOfBirthInput.value === '') {
+			dateOfBirthInput.style.color = 'red'
 			label.appendChild(warning)
 			warning.textContent = 'This field is required'
 			warning.classList.add('warning')
 		} else if (
-			nameInput.value !== 'This field is required' ||
-			secondNameInput.value !== 'This field is required' ||
-			loginInput.value !== 'This field is required' ||
+			nameInput.value !== 'This field is required' &&
+			secondNameInput.value !== 'This field is required' &&
+			loginInput.value !== 'This field is required' &&
 			passwordInput.value !== 'This field is required'
 		) {
 			userInfo.textContent = `User ${nameInput.value} ${secondNameInput.value} born at: ${dateOfBirthInput.value} is creating account with login: ${loginInput.value}`
 			formBody.classList.remove('active')
 			popup.classList.add('active')
 		}
-
-		input.addEventListener('focus', () => {
-			input.value = ''
-			input.style.color = 'white'
-			warning.remove()
-		})
+	})
+})
+allInputs.forEach(input => {
+	input.addEventListener('focus', () => {
+		input.value = ''
+		input.style.color = 'white'
+		warning.remove()
 	})
 })
 
